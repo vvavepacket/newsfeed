@@ -3,6 +3,7 @@ package com.gxhr.newsfeed.service;
 import com.datastax.driver.core.utils.UUIDs;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import com.gxhr.newsfeed.config.CustomProperties;
 import com.gxhr.newsfeed.model.Activity;
 import com.gxhr.newsfeed.model.User;
 import com.gxhr.newsfeed.model.UserFeed;
@@ -40,6 +41,9 @@ public class ActivityServiceImpl implements ActivityService {
     @Autowired
     private ObjectMapper objectMapper;
 
+    @Autowired
+    private CustomProperties customProperties;
+
     @Override
     public Optional<Activity> findById(UUID activityId) {
         return activityRepository.findById(activityId);
@@ -57,7 +61,7 @@ public class ActivityServiceImpl implements ActivityService {
         try {
 
             CloseableHttpClient httpclient = HttpClients.createDefault();
-            HttpGet httpget = new HttpGet("https://api.prod.goxhere.com/auth/users");
+            HttpGet httpget = new HttpGet(customProperties.getAuth() + "/users");
             HttpResponse httpresponse = httpclient.execute(httpget);
             String json_string = EntityUtils.toString(httpresponse.getEntity());
 
