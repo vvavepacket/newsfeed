@@ -14,6 +14,8 @@ import java.util.UUID;
 public class UserFeedResponse {
     private long timestamp;
     private UUID actorId;
+    private String actorName;
+    private String actorImg;
     private String verb;
     private UUID objectId;
     private String target;

@@ -62,7 +62,6 @@ public class ActivityServiceImpl implements ActivityService {
         // if we have millions of users, this will loop and take long time to finish
         // query auth microservice to get all uuids
         try {
-
             CloseableHttpClient httpclient = HttpClients.createDefault();
             HttpGet httpget = new HttpGet(customProperties.getAuth() + "/users");
             HttpResponse httpresponse = httpclient.execute(httpget);
@@ -89,14 +88,9 @@ public class ActivityServiceImpl implements ActivityService {
                         .build();
                 newsfeedRepository.save(tmp);
             }
-
-
-
-
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
 }
