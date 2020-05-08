@@ -57,6 +57,9 @@ public class ActivityServiceImpl implements ActivityService {
 
     @Override
     public void pushToFeeds(Activity activity) {
+        // TODO
+        // possible bottleneck in the future, make this async...
+        // if we have millions of users, this will loop and take long time to finish
         // query auth microservice to get all uuids
         try {
 

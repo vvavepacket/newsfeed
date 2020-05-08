@@ -3,6 +3,7 @@ package com.gxhr.newsfeed.controller;
 import com.datastax.driver.core.utils.UUIDs;
 import com.gxhr.newsfeed.model.Activity;
 import com.gxhr.newsfeed.model.UserFeed;
+import com.gxhr.newsfeed.model.UserFeedResponse;
 import com.gxhr.newsfeed.repository.NewsfeedRepository;
 import com.gxhr.newsfeed.service.ActivityService;
 import com.gxhr.newsfeed.service.NewsfeedService;
@@ -56,7 +57,7 @@ public class NewsfeedController {
      */
 
     @GetMapping("/user/{userId}")
-    public List<UserFeed> getNewsfeedsByUserId(@PathVariable String userId) {
+    public List<UserFeedResponse> getNewsfeedsByUserId(@PathVariable String userId) {
         return newsfeedService.findAllByUserId(UUID.fromString(userId));
     }
 
