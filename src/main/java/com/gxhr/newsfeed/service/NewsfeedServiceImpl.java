@@ -63,14 +63,14 @@ public class NewsfeedServiceImpl implements NewsfeedService {
 
     private String determineTarget(String id) {
         // these are miniapp ids or can be anything else
-        if (id.equals("e11b6d95-142f-4890-af38-3c54155d2407") || id.equals("e11b6d95-142f-4890-af38-3c54155d2407")) {
+        if (id.equals("e11b6d95-142f-4890-af38-3c54155d2407") || id.equals("1ce0ab95-861e-4bfe-bfba-c05c3865ff34")) {
             return "pabili";
         }
         return "unknown";
     }
 
     private String determineVerb(String id) {
-        if (id.equals("3d842474-33d6-4301-b764-6c2110cc327a")) {
+        if (id.equals("3d842474-33d6-4301-b764-6c2110cc327a") || id.equals("23402e15-61af-4a66-8ee7-7fc90475f7e8")) {
             return "requested";
         }
         return "unknown";
