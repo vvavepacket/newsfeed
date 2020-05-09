@@ -54,6 +54,7 @@ public class NewsfeedServiceImpl implements NewsfeedService {
                     .verb(determineVerb(x.getVerbId().toString()))
                     .actorName(getUserFullname(x.getActorId().toString()))
                     .actorImg("https://data.whicdn.com/images/316527818/original.png")
+                    .targetId(x.getTargetId())
                     .build();
             tmp2.add(ufr);
         });
@@ -61,7 +62,8 @@ public class NewsfeedServiceImpl implements NewsfeedService {
     }
 
     private String determineTarget(String id) {
-        if (id.equals("76aa7d76-d942-411e-b440-ca38546b3802")) {
+        // these are miniapp ids or can be anything else
+        if (id.equals("e11b6d95-142f-4890-af38-3c54155d2407") || id.equals("e11b6d95-142f-4890-af38-3c54155d2407")) {
             return "pabili";
         }
         return "unknown";

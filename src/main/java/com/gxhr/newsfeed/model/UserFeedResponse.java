@@ -19,4 +19,5 @@ public class UserFeedResponse {
     private String verb;
     private UUID objectId;
     private String target;
+    private UUID targetId;
 }
